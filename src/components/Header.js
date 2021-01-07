@@ -49,7 +49,7 @@ function Header() {
               </Badge>
             </IconButton>
             <IconButton>
-              <Badge badgeContent={6} color="secondary">
+              <Badge badgeContent={6} color="primary">
                 <ChatBubbleOutlineIcon fontSize="small" />
               </Badge>
             </IconButton>

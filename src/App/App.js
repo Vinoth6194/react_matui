@@ -30,6 +30,11 @@ const theme = createMuiTheme({
       },
     },
   },
+  props: {
+    MuiIconButton: {
+      disableRipple: true,
+    },
+  },
 });
 const useStyes = makeStyles({
   appMain: {

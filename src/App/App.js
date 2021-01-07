@@ -23,6 +23,13 @@ const theme = createMuiTheme({
       default: "#f4f5fd",
     },
   },
+  overrides: {
+    MuiAppBar: {
+      root: {
+        transform: "translateZ(0)",
+      },
+    },
+  },
 });
 const useStyes = makeStyles({
   appMain: {
@@ -40,7 +47,7 @@ function App() {
         <PageHeader
           title="New Employee"
           subTitle="Form design with validation"
-          icon={<PeopleOutlineTwoToneIcon />}
+          icon={<PeopleOutlineTwoToneIcon fontSize="large" />}
         ></PageHeader>
         <CssBaseline />
       </div>

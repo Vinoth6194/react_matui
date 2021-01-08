@@ -9,6 +9,7 @@ import {
   TextField,
 } from "@material-ui/core";
 import React, { useState } from "react";
+import Input from "../../controls/Input";
 import { useForm, Form } from "../../useForm";
 
 const initialFValues = {
@@ -30,18 +31,16 @@ function EmployeeForm() {
     <Form>
       <Grid container>
         <Grid item xs={6}>
-          <TextField
-            variant="outlined"
+          <Input
+            name="fullName"
             label="Full Name"
             value={values.fullName}
-            name="fullName"
             onChange={handleInputChange}
           />
-          <TextField
-            variant="outlined"
+          <Input
+            name="email"
             label="Email"
             value={values.email}
-            name="email"
             onChange={handleInputChange}
           />
         </Grid>

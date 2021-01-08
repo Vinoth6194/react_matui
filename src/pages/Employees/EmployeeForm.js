@@ -1,7 +1,7 @@
 import { Grid } from "@material-ui/core";
 import React, { useState } from "react";
-import Controls from "../../controls/Controls";
-import { useForm, Form } from "../../useForm";
+import Controls from "../../components/controls/Controls";
+import { useForm, Form } from "../../components/useForm";
 const genderItems = [
   { id: "male", title: "Male" },
   { id: "female", title: "Female" },

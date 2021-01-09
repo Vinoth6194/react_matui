@@ -63,6 +63,12 @@ function EmployeeForm() {
             value={values.isPermanent}
             onChange={handleInputChange}
           ></Controls.CheckBox>
+          <Controls.DatePicker
+            name="hireDate"
+            label="Hire Date"
+            value={values.hireDate}
+            onChange={handleInputChange}
+          ></Controls.DatePicker>
         </Grid>
       </Grid>
     </Form>

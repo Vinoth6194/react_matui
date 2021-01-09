@@ -81,6 +81,10 @@ function EmployeeForm() {
             value={values.hireDate}
             onChange={handleInputChange}
           ></Controls.DatePicker>
+          <div>
+            <Controls.Button type="submit" text="Submit" />
+            <Controls.Button text="Reset" color="default" />
+          </div>
         </Grid>
       </Grid>
     </Form>

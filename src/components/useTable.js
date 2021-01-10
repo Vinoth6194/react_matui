@@ -51,6 +51,10 @@ function useTable(records, headCells) {
     setRowsPerPage(parseInt(e.target.value * 10));
     setPage(0);
   };
+
+  const recordsAfterPaginationAndSorting = () => {
+    return records.slice(page * rowsPerPage, (page + 1) * rowsPerPage);
+  };
   const TblPagination = () => (
     <TablePagination
       component="div"
@@ -66,6 +70,7 @@ function useTable(records, headCells) {
     TblContainer,
     TblHead,
     TblPagination,
+    recordsAfterPaginationAndSorting,
   };
 }
 

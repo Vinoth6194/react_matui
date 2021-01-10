@@ -22,7 +22,7 @@ const headCells = [
 function Employee() {
   const classes = useStyles();
   const [records, setRecords] = useState(employeeService.getAllEmployees());
-  const { TblContainer, TblHead, TblPagination } = useTable(records, headCells);
+  const { TblContainer, TblHead, TblPagination,recordsAfterPaginationAndSorting } = useTable(records, headCells);
 
   return (
     <>
@@ -36,7 +36,7 @@ function Employee() {
         <TblContainer>
           <TblHead></TblHead>
           <TableBody>
-            {records.map((item) => (
+            {recordsAfterPaginationAndSorting().map((item) => (
               <TableRow key={item.id}>
                 <TableCell>{item.fullName}</TableCell>
                 <TableCell>{item.email}</TableCell>

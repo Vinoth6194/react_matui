@@ -25,8 +25,12 @@ const initialFValues = {
 function EmployeeForm() {
   const { values, setValues, handleInputChange } = useForm(initialFValues);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("Test submit");
+  };
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <Grid container>
         <Grid item xs={6}>
           <Controls.Input

@@ -3,14 +3,26 @@ import PageHeader from "../../components/PageHeader";
 import EmployeeForm from "./EmployeeForm";
 import PeopleOutlineTwoToneIcon from "@material-ui/icons/PeopleOutlineTwoTone";
 import Paper from "@material-ui/core/Paper";
-import { makeStyles, TableBody, TableCell, TableRow } from "@material-ui/core";
+import {
+  makeStyles,
+  TableBody,
+  TableCell,
+  TableRow,
+  Toolbar,
+} from "@material-ui/core";
 import useTable from "../../components/useTable";
 import * as employeeService from "../../services/employeeService";
+import AddIcon from "@material-ui/icons/Add";
+import Controls from "../../components/controls/Controls";
 
 const useStyles = makeStyles((theme) => ({
   pageContent: {
     margin: theme.spacing(5),
     padding: theme.spacing(3),
+  },
+  newButton: {
+    position: "absolute",
+    right: "10px",
   },
 }));
 const headCells = [
@@ -22,7 +34,12 @@ const headCells = [
 function Employee() {
   const classes = useStyles();
   const [records, setRecords] = useState(employeeService.getAllEmployees());
-  const { TblContainer, TblHead, TblPagination,recordsAfterPaginationAndSorting } = useTable(records, headCells);
+  const {
+    TblContainer,
+    TblHead,
+    TblPagination,
+    recordsAfterPaginationAndSorting,
+  } = useTable(records, headCells);
 
   return (
     <>
@@ -32,7 +49,15 @@ function Employee() {
         icon={<PeopleOutlineTwoToneIcon fontSize="large" />}
       ></PageHeader>
       <Paper className={classes.pageContent}>
-        <EmployeeForm />
+        {/* <EmployeeForm /> */}
+        <Toolbar>
+          <Controls.Button
+            variant="outlined"
+            text="Add New"
+            startIcon={<AddIcon></AddIcon>}
+            className={classes.newButton}
+          ></Controls.Button>
+        </Toolbar>
         <TblContainer>
           <TblHead></TblHead>
           <TableBody>

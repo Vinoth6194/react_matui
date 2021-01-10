@@ -23,9 +23,14 @@ const initialFValues = {
 };
 
 function EmployeeForm() {
-  const { values, setValues, handleInputChange, errors, setErrors } = useForm(
-    initialFValues
-  );
+  const {
+    values,
+    setValues,
+    handleInputChange,
+    errors,
+    setErrors,
+    resetForm,
+  } = useForm(initialFValues);
 
   const validate = () => {
     let temp = {};
@@ -110,7 +115,7 @@ function EmployeeForm() {
           ></Controls.DatePicker>
           <div>
             <Controls.Button type="submit" text="Submit" />
-            <Controls.Button text="Reset" color="default" />
+            <Controls.Button text="Reset" color="default" onClick={resetForm} />
           </div>
         </Grid>
       </Grid>

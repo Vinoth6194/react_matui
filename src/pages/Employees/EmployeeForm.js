@@ -94,6 +94,7 @@ function EmployeeForm() {
             value={values.departmentId}
             onChange={handleInputChange}
             options={employeeService.getDepartmentCollection()}
+            error={errors.departmentId}
           ></Controls.Select>
           <Controls.CheckBox
             name="isPermanent"

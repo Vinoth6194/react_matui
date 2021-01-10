@@ -11,6 +11,8 @@ export default function Input(props) {
       value={value}
       name={name}
       onChange={onChange}
+      error
+      helperText="Validation message here"
     />
   );
 }

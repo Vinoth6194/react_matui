@@ -13,3 +13,9 @@ export function getAllEmployees() {
     localStorage.setItem(KEYS.employees, JSON.stringify([]));
   return JSON.parse(localStorage.getItem(KEYS.employees));
 }
+
+export function insertEmployee(data) {
+  let employees = getAllEmployees();
+  employees.push(data);
+  localStorage.setItem(KEYS.employees, JSON.stringify(employees));
+}

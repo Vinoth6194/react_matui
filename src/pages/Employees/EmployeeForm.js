@@ -37,10 +37,16 @@ function EmployeeForm() {
     setErrors({
       ...temp,
     });
+    return Object.values(temp).every((x) => x == "");
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Test submit");
+
+    if (validate()) {
+      // alert("Test submit");
+      alert("Successful validation");
+    }
   };
   return (
     <Form onSubmit={handleSubmit}>

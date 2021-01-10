@@ -1,5 +1,6 @@
 const KEYS = {
   employees: "employees",
+  employeeId: "employeeId",
 };
 export const getDepartmentCollection = () => [
   { id: "1", title: "Development" },
@@ -16,6 +17,15 @@ export function getAllEmployees() {
 
 export function insertEmployee(data) {
   let employees = getAllEmployees();
+  data["id"] = generateEmployeeId();
   employees.push(data);
   localStorage.setItem(KEYS.employees, JSON.stringify(employees));
+}
+
+export function generateEmployeeId() {
+  if (localStorage.getItem(KEYS.employeeId) == null)
+    localStorage.setItem(KEYS.employeeId, "0");
+  var id = parseInt(localStorage.getItem(KEYS.employeeId));
+  localStorage.setItem(KEYS.employeeId, (++id).toString());
+  return id;
 }

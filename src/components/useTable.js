@@ -5,6 +5,7 @@ import {
   TableHead,
   TablePagination,
   TableRow,
+  TableSortLabel,
 } from "@material-ui/core";
 import React, { useState } from "react";
 const useStyles = makeStyles((theme) => ({
@@ -30,15 +31,22 @@ function useTable(records, headCells) {
   const pages = [5, 10, 25];
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(pages[page]);
+  const [order, setOrder] = useState();
+  const [orderBy, setOrderBy] = useState();
   const TblContainer = (props) => (
     <Table className={classes.table}>{props.children}</Table>
   );
   const TblHead = (props) => {
+    const handleSortRequest = () => {};
     return (
       <TableHead>
         <TableRow>
           {headCells.map((headCell) => (
-            <TableCell id={headCell.id}>{headCell.label}</TableCell>
+            <TableCell id={headCell.id}>
+              <TableSortLabel onClick={() => handleSortRequest(headCell)}>
+                {headCell.label}
+              </TableSortLabel>
+            </TableCell>
           ))}
         </TableRow>
       </TableHead>

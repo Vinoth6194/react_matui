@@ -25,6 +25,14 @@ const initialFValues = {
 function EmployeeForm() {
   const { values, setValues, handleInputChange } = useForm(initialFValues);
 
+  const validate = () => {
+    let temp = {};
+    temp.fullName = values.fullName ? "" : "Fullname is required";
+    temp.email = /$^|.+.@..+/.test(values.email) ? "" : "Email is not valid";
+    temp.mobile = values.mobile.length > 9 ? "" : "Minimum of 10 Digits";
+    temp.departmentId =
+      values.departmentId.length != 0 ? "" : "Choose an option";
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     alert("Test submit");

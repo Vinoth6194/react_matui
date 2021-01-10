@@ -57,6 +57,7 @@ function EmployeeForm() {
             label="Full Name"
             value={values.fullName}
             onChange={handleInputChange}
+            error={errors.fullName}
           />
           <Controls.Input
             name="email"

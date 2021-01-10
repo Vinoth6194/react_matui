@@ -25,7 +25,7 @@ function Employee() {
         icon={<PeopleOutlineTwoToneIcon fontSize="large" />}
       ></PageHeader>
       <Paper className={classes.pageContent}>
-        {/* <EmployeeForm /> */}
+        <EmployeeForm />
         <TblContainer>
           <TableBody>
             {records.map((item) => (

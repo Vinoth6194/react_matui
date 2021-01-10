@@ -25,6 +25,10 @@ const initialFValues = {
 function EmployeeForm() {
   const validate = (fieldValues = values) => {
     let temp = { ...errors };
+    //*fieldValues are used in validation condition as the states can only be updated if all the setState methods are called. (refer documentation)
+    //*Since it will take few seconds, the delaycan be avoided by calling the fieldValues in validations as it has a copy of values.
+    //* refer("https://reactjs.org/docs/faq-state.html")under Why doesn’t React update this.state synchronously?
+
     if ("fullName" in fieldValues)
       temp.fullName = fieldValues.fullName ? "" : "Fullname is required";
     if ("email" in fieldValues)

@@ -8,7 +8,7 @@ export const getDepartmentCollection = () => [
   { id: "4", title: "HR" },
 ];
 
-export function getAllEmployess() {
+export function getAllEmployees() {
   if (localStorage.getItem(KEYS.employees) == null)
     localStorage.setItem(KEYS.employees, JSON.stringify([]));
   return JSON.parse(localStorage.getItem(KEYS.employees));

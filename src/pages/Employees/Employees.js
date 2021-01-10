@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import PageHeader from "../../components/PageHeader";
 import EmployeeForm from "./EmployeeForm";
 import PeopleOutlineTwoToneIcon from "@material-ui/icons/PeopleOutlineTwoTone";
 import Paper from "@material-ui/core/Paper";
-import { makeStyles } from "@material-ui/core";
+import { makeStyles, TableBody, TableCell, TableRow } from "@material-ui/core";
 import useTable from "../../components/useTable";
+import * as employeeService from "../../services/employeeService";
 
 const useStyles = makeStyles((theme) => ({
   pageContent: {
@@ -15,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
 function Employee() {
   const classes = useStyles();
   const { TblContainer } = useTable();
+  const [records, setRecords] = useState(employeeService.getAllEmployees());
   return (
     <>
       <PageHeader
@@ -24,7 +26,17 @@ function Employee() {
       ></PageHeader>
       <Paper className={classes.pageContent}>
         {/* <EmployeeForm /> */}
-        <TblContainer></TblContainer>
+        <TblContainer>
+          <TableBody>
+            {records.map((item) => (
+              <TableRow key={item.id}>
+                <TableCell>{item.fullName}</TableCell>
+                <TableCell>{item.email}</TableCell>
+                <TableCell>{item.mobile}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </TblContainer>
       </Paper>
     </>
   );

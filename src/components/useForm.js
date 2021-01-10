@@ -12,12 +12,17 @@ export function useForm(initialFValues) {
     });
     console.log(name, value);
   };
+  const resetForm = () => {
+    setValues(initialFValues);
+    setErrors({});
+  };
   return {
     values,
     setValues,
     errors,
     setErrors,
     handleInputChange,
+    resetForm,
   };
 }
 const useStyles = makeStyles((theme) => ({

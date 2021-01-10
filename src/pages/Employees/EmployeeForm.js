@@ -37,9 +37,14 @@ function EmployeeForm() {
     return Object.values(temp).every((x) => x == "");
   };
 
-  const { values, setValues, errors, setErrors, handleInputChange } = useForm(
-    initialFValues
-  );
+  const {
+    values,
+    setValues,
+    errors,
+    setErrors,
+    handleInputChange,
+    resetForm,
+  } = useForm(initialFValues);
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(e);
@@ -110,7 +115,7 @@ function EmployeeForm() {
           ></Controls.DatePicker>
           <div>
             <Controls.Button type="submit" text="Submit" />
-            <Controls.Button text="Reset" color="default" />
+            <Controls.Button text="Reset" color="default" onClick={resetForm}/>
           </div>
         </Grid>
       </Grid>

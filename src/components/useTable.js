@@ -48,7 +48,7 @@ function useTable(records, headCells) {
     setPage(newPage);
   };
   const handleChangeRowsPerPage = (e) => {
-    setRowsPerPage(parseInt(e.target.value * 10));
+    setRowsPerPage(parseInt(e.target.value, 10));
     setPage(0);
   };
 

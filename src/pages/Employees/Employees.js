@@ -33,6 +33,7 @@ function Employee() {
                 <TableCell>{item.fullName}</TableCell>
                 <TableCell>{item.email}</TableCell>
                 <TableCell>{item.mobile}</TableCell>
+                <TableCell>{item.department}</TableCell>
               </TableRow>
             ))}
           </TableBody>

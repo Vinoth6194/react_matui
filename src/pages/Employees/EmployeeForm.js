@@ -60,7 +60,9 @@ function EmployeeForm() {
 
     if (validate()) {
       // alert("Test submit");
-      alert("Successful validation");
+      // alert("Successful validation");
+      employeeService.insertEmployee(values);
+      resetForm();
     }
   };
   return (

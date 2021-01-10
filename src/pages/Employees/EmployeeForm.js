@@ -39,7 +39,8 @@ function EmployeeForm() {
     setErrors({
       ...temp,
     });
-    return Object.values(temp).every((x) => x == "");
+    if ((fieldValues = values))
+      return Object.values(temp).every((x) => x == "");
   };
   const {
     values,

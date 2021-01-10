@@ -37,13 +37,29 @@ function useTable(records, headCells) {
     <Table className={classes.table}>{props.children}</Table>
   );
   const TblHead = (props) => {
-    const handleSortRequest = () => {};
+    // const handleSortRequest = (cellId) => {
+    //   const isAsc = orderBy === cellId && order === "asc"; //*Default condition for ascending order by the given column
+    //   setOrder(isAsc ? "desc" : "asc");
+    //   setOrderBy(cellId);
+    // };
+    const handleSortRequest = (cellId) => {
+      const isAsc = orderBy === cellId && order === "asc";
+      setOrder(isAsc ? "desc" : "asc");
+      setOrderBy(cellId);
+    };
     return (
       <TableHead>
         <TableRow>
           {headCells.map((headCell) => (
-            <TableCell id={headCell.id}>
-              <TableSortLabel onClick={() => handleSortRequest(headCell)}>
+            <TableCell key={headCell.id}>
+              <TableSortLabel
+                active={orderBy === headCell.id}
+                direction={orderBy === headCell.id ? order : "asc"}
+                onClick={() => {
+                  handleSortRequest(headCell.id);
+                }}
+            
+              >
                 {headCell.label}
               </TableSortLabel>
             </TableCell>

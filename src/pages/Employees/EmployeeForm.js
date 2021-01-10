@@ -23,10 +23,33 @@ const initialFValues = {
 };
 
 function EmployeeForm() {
-  const { values, setValues, handleInputChange } = useForm(initialFValues);
+  const validate = () => {
+    let temp = {};
+    temp.fullName = values.fullName ? "" : "This field is required";
+    temp.email = /$^| .+@+..+/.test(values.email) ? "" : "Email is not valid";
+    temp.mobile =
+      values.mobile.length > 9 ? "" : "Minimum of 10 numbers required";
+    temp.departmentId =
+      values.departmentId.length != 0 ? "" : "The field is required";
+    setErrors({
+      ...temp,
+    });
+    return Object.values(temp).every((x) => x == "");
+  };
+
+  const { values, setValues, errors, setErrors, handleInputChange } = useForm(
+    initialFValues
+  );
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(e);
+    if (validate()) {
+      window.alert("Just a test");
+    }
+  };
 
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <Grid container>
         <Grid item xs={6}>
           <Controls.Input
@@ -34,18 +57,21 @@ function EmployeeForm() {
             label="Full Name"
             value={values.fullName}
             onChange={handleInputChange}
+            error={errors.fullName}
           />
           <Controls.Input
             name="email"
             label="Email"
             value={values.email}
             onChange={handleInputChange}
+            error={errors.email}
           />
           <Controls.Input
             name="mobile"
             label="Mobile"
             value={values.mobile}
             onChange={handleInputChange}
+            error={errors.mobile}
           />
           <Controls.Input
             name="city"
@@ -68,6 +94,7 @@ function EmployeeForm() {
             value={values.departmentId}
             onChange={handleInputChange}
             options={employeeService.getDepartmentCollection()}
+            error={errors.departmentId}
           ></Controls.Select>
           <Controls.CheckBox
             name="isPermanent"

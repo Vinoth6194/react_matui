@@ -23,7 +23,9 @@ const initialFValues = {
 };
 
 function EmployeeForm() {
-  const { values, setValues, handleInputChange } = useForm(initialFValues);
+  const { values, setValues, handleInputChange, errors, setErrors } = useForm(
+    initialFValues
+  );
 
   const validate = () => {
     let temp = {};
@@ -32,6 +34,9 @@ function EmployeeForm() {
     temp.mobile = values.mobile.length > 9 ? "" : "Minimum of 10 Digits";
     temp.departmentId =
       values.departmentId.length != 0 ? "" : "Choose an option";
+    setErrors({
+      ...temp,
+    });
   };
   const handleSubmit = (e) => {
     e.preventDefault();

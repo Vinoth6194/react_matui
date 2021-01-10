@@ -47,7 +47,10 @@ function useTable(records, headCells) {
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
-
+  const handleChangeRowsPerPage = (e) => {
+    setRowsPerPage(parseInt(e.target.value * 10));
+    setPage(0);
+  };
   const TblPagination = () => (
     <TablePagination
       component="div"
@@ -56,6 +59,7 @@ function useTable(records, headCells) {
       rowsPerPage={rowsPerPage}
       count={records.length}
       onChangePage={handleChangePage}
+      onChangeRowsPerPage={handleChangeRowsPerPage}
     />
   );
   return {

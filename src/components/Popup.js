@@ -6,6 +6,8 @@ import {
   Typography,
 } from "@material-ui/core";
 import React from "react";
+import Controls from "./controls/Controls";
+
 const useStyles = makeStyles((theme) => ({
   dialogWrapper: {
     position: "absolute",
@@ -23,10 +25,11 @@ function Popup(props) {
       classes={{ paper: classes.dialogWrapper }} //* internally the dialog component uses paper component, to target paper we have used classes instead of className as earlier..
     >
       <DialogTitle>
-        <div>
-          <Typography variant="h6" component="div">
+        <div style={{ display: "flex" }}>
+          <Typography variant="h6" component="div" style={{ flexGrow: "1" }}>
             {title}
           </Typography>
+          <Controls.Button text="x" color="secondary"></Controls.Button>
         </div>
       </DialogTitle>
 

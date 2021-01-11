@@ -14,6 +14,7 @@ import useTable from "../../components/useTable";
 import * as employeeService from "../../services/employeeService";
 import AddIcon from "@material-ui/icons/Add";
 import Controls from "../../components/controls/Controls";
+import Popup from "../../components/Popup";
 
 const useStyles = makeStyles((theme) => ({
   pageContent: {
@@ -34,6 +35,7 @@ const headCells = [
 function Employee() {
   const classes = useStyles();
   const [records, setRecords] = useState(employeeService.getAllEmployees());
+  const [openPopup, setOpenPopup] = useState(false);
   const {
     TblContainer,
     TblHead,
@@ -56,6 +58,7 @@ function Employee() {
             text="Add New"
             startIcon={<AddIcon></AddIcon>}
             className={classes.newButton}
+            onClick={() => setOpenPopup(true)}
           ></Controls.Button>
         </Toolbar>
         <TblContainer>
@@ -73,6 +76,7 @@ function Employee() {
         </TblContainer>
         <TblPagination />
       </Paper>
+      <Popup openPopup={openPopup} setOpenPopup={setOpenPopup}></Popup>
     </>
   );
 }

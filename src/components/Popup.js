@@ -34,7 +34,7 @@ function Popup(props) {
             {title}
           </Typography>
           <Controls.ActionButton text="x" color="secondary">
-            <CloseIcon />
+            <CloseIcon onClick={() => setOpenPopup(false)} />
           </Controls.ActionButton>
         </div>
       </DialogTitle>

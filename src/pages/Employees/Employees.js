@@ -51,7 +51,6 @@ function Employee() {
         icon={<PeopleOutlineTwoToneIcon fontSize="large" />}
       ></PageHeader>
       <Paper className={classes.pageContent}>
-        {/* <EmployeeForm /> */}
         <Toolbar>
           <Controls.Button
             variant="outlined"
@@ -76,7 +75,9 @@ function Employee() {
         </TblContainer>
         <TblPagination />
       </Paper>
-      <Popup openPopup={openPopup} setOpenPopup={setOpenPopup}></Popup>
+      <Popup openPopup={openPopup} setOpenPopup={setOpenPopup}>
+        <EmployeeForm />
+      </Popup>
     </>
   );
 }

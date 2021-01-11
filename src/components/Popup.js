@@ -6,7 +6,7 @@ function Popup(props) {
   return (
     <Dialog open={openPopup}>
       <DialogTitle>Dialog title</DialogTitle>
-      <DialogContent>Dialog content</DialogContent>
+      <DialogContent>{children}</DialogContent>
     </Dialog>
   );
 }

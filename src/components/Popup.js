@@ -3,6 +3,7 @@ import {
   DialogContent,
   DialogTitle,
   makeStyles,
+  Typography,
 } from "@material-ui/core";
 import React from "react";
 const useStyles = makeStyles((theme) => ({
@@ -21,7 +22,14 @@ function Popup(props) {
       maxWidth="md"
       classes={{ paper: classes.dialogWrapper }} //* internally the dialog component uses paper component, to target paper we have used classes instead of className as earlier..
     >
-      <DialogTitle>{title}</DialogTitle>
+      <DialogTitle>
+        <div>
+          <Typography variant="h6" component="div">
+            {title}
+          </Typography>
+        </div>
+      </DialogTitle>
+
       <DialogContent dividers>{children}</DialogContent>
     </Dialog>
   );

@@ -15,7 +15,8 @@ import * as employeeService from "../../services/employeeService";
 import AddIcon from "@material-ui/icons/Add";
 import Controls from "../../components/controls/Controls";
 import Popup from "../../components/Popup";
-
+import EditOutlinedIcon from "@material-ui/icons/EditOutlined";
+import CloseOutlinedIcon from "@material-ui/icons/CloseOutlined";
 const useStyles = makeStyles((theme) => ({
   pageContent: {
     margin: theme.spacing(5),
@@ -30,7 +31,8 @@ const headCells = [
   { id: "fullname", label: "Employee Name" },
   { id: "email", label: "Email Address (Personal)" },
   { id: "mobile", label: "Mobile Number" },
-  { id: "department", label: "Department" },
+  { id: "department", label: "Department", disableSorting: true },
+  { id: "actions", label: "Actions" },
 ];
 function Employee() {
   const classes = useStyles();
@@ -74,6 +76,14 @@ function Employee() {
                 <TableCell>{item.email}</TableCell>
                 <TableCell>{item.mobile}</TableCell>
                 <TableCell>{item.department}</TableCell>
+                <TableCell>
+                  <Controls.ActionButton>
+                    <EditOutlinedIcon color="primary" />
+                  </Controls.ActionButton>
+                  <Controls.ActionButton>
+                    <CloseOutlinedIcon color="secondary" />
+                  </Controls.ActionButton>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>

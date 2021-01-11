@@ -75,7 +75,7 @@ function Employee() {
         </TblContainer>
         <TblPagination />
       </Paper>
-      <Popup openPopup={openPopup} setOpenPopup={setOpenPopup}>
+      <Popup openPopup={openPopup} setOpenPopup={setOpenPopup} title="Employee Form">
         <EmployeeForm />
       </Popup>
     </>

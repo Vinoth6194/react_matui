@@ -21,8 +21,8 @@ function Popup(props) {
       maxWidth="md"
       classes={{ paper: classes.dialogWrapper }} //* internally the dialog component uses paper component, to target paper we have used classes instead of className as earlier..
     >
-      <DialogTitle>Dialog title</DialogTitle>
-      <DialogContent>{children}</DialogContent>
+      <DialogTitle>{title}</DialogTitle>
+      <DialogContent dividers>{children}</DialogContent>
     </Dialog>
   );
 }

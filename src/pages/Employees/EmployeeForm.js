@@ -22,7 +22,8 @@ const initialFValues = {
   isPermanent: false,
 };
 
-function EmployeeForm() {
+function EmployeeForm(props) {
+  const { addOrEdit } = props;
   const validate = (fieldValues = values) => {
     let temp = { ...errors };
     //*fieldValues are used in validation condition as the states can only be updated if all the setState methods are called. (refer documentation)
@@ -61,8 +62,9 @@ function EmployeeForm() {
     if (validate()) {
       // alert("Test submit");
       // alert("Successful validation");
-      employeeService.insertEmployee(values);
-      resetForm();
+      // employeeService.insertEmployee(values);
+      // resetForm();
+      addOrEdit(values, resetForm);
     }
   };
   return (

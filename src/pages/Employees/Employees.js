@@ -42,7 +42,12 @@ function Employee() {
     TblPagination,
     recordsAfterPaginationAndSorting,
   } = useTable(records, headCells);
-
+  const addOrEdit = (employee, resetForm) => {
+    employeeService.insertEmployee(employee);
+    resetForm();
+    setOpenPopup(false);
+    setRecords(employeeService.getAllEmployees());
+  };
   return (
     <>
       <PageHeader
@@ -75,8 +80,12 @@ function Employee() {
         </TblContainer>
         <TblPagination />
       </Paper>
-      <Popup openPopup={openPopup} setOpenPopup={setOpenPopup} title="Employee Form">
-        <EmployeeForm />
+      <Popup
+        openPopup={openPopup}
+        setOpenPopup={setOpenPopup}
+        title="Employee Form"
+      >
+        <EmployeeForm addOrEdit={addOrEdit} />
       </Popup>
     </>
   );

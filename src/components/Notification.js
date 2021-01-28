@@ -9,16 +9,24 @@ const useStyles = makeStyles((theme) => ({
 }));
 function Notification(props) {
   const { notify, setNotify } = props;
+  const handleClose = (event, reason) => {
+    setNotify({
+      ...notify,
+      isOpen: false,
+    });
+  };
   const classes = useStyles();
   return (
     <>
       <Snackbar
         className={classes.root}
         open={notify.isOpen}
-        autoHideDuration={3}
+        autoHideDuration={3000}
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
       >
-        <Alert severity={notify.type}>{notify.message}</Alert>
+        <Alert severity={notify.type} onClose={handleClose}>
+          {notify.message}
+        </Alert>
       </Snackbar>
     </>
   );

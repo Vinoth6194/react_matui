@@ -17,6 +17,7 @@ import Controls from "../../components/controls/Controls";
 import Popup from "../../components/Popup";
 import EditOutlinedIcon from "@material-ui/icons/EditOutlined";
 import CloseOutlinedIcon from "@material-ui/icons/CloseOutlined";
+import Notification from "../../components/Notification";
 const useStyles = makeStyles((theme) => ({
   pageContent: {
     margin: theme.spacing(5),
@@ -38,6 +39,11 @@ function Employee() {
   const classes = useStyles();
   const [records, setRecords] = useState(employeeService.getAllEmployees());
   const [openPopup, setOpenPopup] = useState(false);
+  const [notify, setNotify] = useState({
+    isOpen: false,
+    message: "",
+    type: "",
+  });
   const {
     TblContainer,
     TblHead,
@@ -49,6 +55,11 @@ function Employee() {
     resetForm();
     setOpenPopup(false);
     setRecords(employeeService.getAllEmployees());
+    setNotify({
+      isOpen: true,
+      message: "Submitted Successfully",
+      type: "success",
+    });
   };
   return (
     <>
@@ -97,6 +108,7 @@ function Employee() {
       >
         <EmployeeForm addOrEdit={addOrEdit} />
       </Popup>
+      <Notification notify={notify} setNotify={setNotify} />
     </>
   );
 }

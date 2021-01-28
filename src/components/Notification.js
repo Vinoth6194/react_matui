@@ -10,6 +10,9 @@ const useStyles = makeStyles((theme) => ({
 function Notification(props) {
   const { notify, setNotify } = props;
   const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
     setNotify({
       ...notify,
       isOpen: false,

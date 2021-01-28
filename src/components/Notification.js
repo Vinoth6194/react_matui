@@ -23,6 +23,7 @@ function Notification(props) {
         open={notify.isOpen}
         autoHideDuration={3000}
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
+        onClose={handleClose}
       >
         <Alert severity={notify.type} onClose={handleClose}>
           {notify.message}

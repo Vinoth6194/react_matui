@@ -7,7 +7,11 @@ function Notification(props) {
   const { notify, setNotify } = props;
   return (
     <>
-      <Snackbar open={notify.isOpen} autoHideDuration={3000}>
+      <Snackbar
+        open={notify.isOpen}
+        autoHideDuration={3}
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
+      >
         <Alert severity={notify.type}>{notify.message}</Alert>
       </Snackbar>
     </>

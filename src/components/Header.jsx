@@ -14,10 +14,11 @@ function Header() {
     <AppBar position="static">
       <Toolbar>
         <Grid container>
-          <Grid item sm={6} style={{ border: '2px solid red' }}>
+          <Grid item>
             <InputBase />
           </Grid>
-          <Grid item sm={6} style={{ border: '2px solid green' }}>
+          <Grid item sm></Grid>
+          <Grid item>
             <IconButton>
               <Badge badgeContent={4} color="secondary">
                 <NotificationsNoneIcon />

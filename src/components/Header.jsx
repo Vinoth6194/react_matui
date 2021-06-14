@@ -23,6 +23,9 @@ const useStyles = makeStyles({
     '&:hover': {
       backgroundColor: '#f2f2f2',
     },
+    '& .MuiSvgIcon-root': {
+      marginRight: '8px',
+    },
   },
 });
 

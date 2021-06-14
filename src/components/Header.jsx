@@ -30,7 +30,7 @@ function Header() {
       //*root class gets applied to the Matui comp as it is the recent rendered
       //*style
       <Toolbar>
-        <Grid container>
+        <Grid container alignItems="center">
           <Grid item>
             <InputBase
               className={classes.searchInput}
